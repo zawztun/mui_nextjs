@@ -9,9 +9,8 @@ const Hero= () => {
     <div>
 <Grid container spacing={2}>
 <Grid item xs={6} md={8}>
-  <h2>Works well in fast-paced, deadline-driven environments.</h2>
-<strong>Energetic and focused Production Worker </strong> committed to teamwork and company objectives. Excellent ability working with operating equipment, completing side projects and possesses a strong willingness to learn new processes. Works well in fast-paced, deadline-driven environments.
-<strong>Energetic and focused Production Worker </strong> committed to teamwork and company objectives. Excellent ability working with operating equipment, completing side projects and possesses a strong willingness to learn new processes. Works well in fast-paced, deadline-driven environments.
+    
+
   </Grid>
   <Grid item xs={6} md={4}>
   <Stack direction="row" spacing={4}>

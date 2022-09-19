@@ -6,7 +6,7 @@ import Footer from '@/components/Footer'
 
 const Container = ({children}) => {
   return (
-    <div style={{padding: "5rem"}}>
+    <div style = {{width:"80%", marginLeft:'auto', marginRiht: 'auto'}}>
         <Header/>
             {children}
         <Footer/>

@@ -11,11 +11,6 @@ const Posts= () => {
 <Grid container spacing={2}>
 <Grid item xs={6} md={4}>
   <Stack direction="row" spacing={8}>
-  <Card
-        component="img"
-        height="240"
-        image=""
-      />
   </Stack>
   </Grid>
 <Grid item xs={6} md={8}>
