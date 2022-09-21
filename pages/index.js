@@ -22,7 +22,7 @@ export default function index() {
     <div>
       <CustomContainer>
         <Hero/>
-        <Posts/>
+        {/* <Posts/> */}
         <MyCard/>
       </CustomContainer>
     </div>
