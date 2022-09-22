@@ -1,29 +1,35 @@
 import Hero from '@/components/Hero'
-import MyCard from '@/components/MyCard';
+import Card from '@/components/Cards';
 import Posts from '@/components/Posts'
 import React from 'react'
+import { gql } from "@apollo/client";
+import client from "@/utils/apollo";
 import CustomContainer  from '../layout/Container'
 
-// const sections = [
-//   { title: 'Technology', url: '#' },
-//   { title: 'Design', url: '#' },
-//   { title: 'Culture', url: '#' },
-//   { title: 'Business', url: '#' },
-//   { title: 'Politics', url: '#' },
-//   { title: 'Opinion', url: '#' },
-//   { title: 'Science', url: '#' },
-//   { title: 'Health', url: '#' },
-//   { title: 'Style', url: '#' },
-//   { title: 'Travel', url: '#' },
-// ];
 
-export default function index() {
+export async function getStaticProps() {
+  const { data } = await client.query({
+    query: gql`
+    query all {
+        allPost{title},
+      }
+    `,
+  });
+console.log(data)
+  return {
+    props: {
+     data
+    },
+ };
+}
+export default function Index(props) {
+  console.log(props)
   return (
     <div>
       <CustomContainer>
         <Hero/>
-        {/* <Posts/> */}
-        <MyCard/>
+        <Posts/> 
+        {/* <Card/> */}
       </CustomContainer>
     </div>
   )

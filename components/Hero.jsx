@@ -1,5 +1,7 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import Button from "@mui/material/Button";
 import Image from "next/image";
 
@@ -54,18 +56,14 @@ const Hero = () => {
           sint. Velit officia consequat duis enim velit mollit. Exercitation
           veniam consequat sunt nostrud amet.
         </Typography>
-        <Button
-          sx={{
-            width: "max-content",
-            mx: {
-              xs: "auto",
-              md: "0",
-            },
-          }}
-          variant="contained"
-        >
-          Download Resume
+        <Box>
+        <Button>
+            <GitHubIcon />
         </Button>
+        <Button>
+        <LinkedInIcon/>
+        </Button>
+        </Box>
       </Box>
       <Box
         sx={{
