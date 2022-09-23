@@ -57,12 +57,12 @@ const Hero = () => {
           veniam consequat sunt nostrud amet.
         </Typography>
         <Box>
-        <Button>
+          <Button>
             <GitHubIcon />
-        </Button>
-        <Button>
-        <LinkedInIcon/>
-        </Button>
+          </Button>
+          <Button>
+            <LinkedInIcon />
+          </Button>
         </Box>
       </Box>
       <Box

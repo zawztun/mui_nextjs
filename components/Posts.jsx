@@ -4,68 +4,68 @@ import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import { Divider, Grid } from "@mui/material";
 import Image from "next/image";
-import { Dataset } from "@mui/icons-material";
 
-const posts = [
-  {
-    title: "Designing Dashboards",
-    body: "ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae",
-    Author: "zawtun",
-    date: "02.02.2021",
-    image:
-      "https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-  },
-  {
-    title: "nesciunt quas odio",
-    body: "ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae",
-    Author: "zawtun",
-    date: "22.02.2020",
-    image:
-      "https://images.unsplash.com/photo-1525373698358-041e3a460346?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-  },
-  {
-    title: "nesciunt quas odio",
-    body: "ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae",
-    Author: "zawtun",
-    date: "02.02.2021",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-  },
-  {
-    title: "Designing Dashboards",
-    body: "ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae",
-    Author: "zawtun",
-    date: "02.02.2021",
-    image:
-      "https://images.unsplash.com/photo-1504890001746-a9a68eda46e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1087&q=80",
-  },
-  {
-    title: "nesciunt quas odio",
-    body: "ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae",
-    Author: "zawtun",
-    date: "22.02.2020",
-    image:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHdlYiUyMGRlc2lnbmVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-  },
-  {
-    title: "nesciunt quas odio",
-    body: "ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae",
-    Author: "zawtun",
-    date: "02.02.2021",
-    image:
-      "https://images.unsplash.com/photo-1541364983171-a8ba01e95cfc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-  },
-  {
-    title: "nesciunt quas odio",
-    body: "ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae",
-    Author: "zawtun",
-    date: "07.04.2021",
-    image:
-      "https://images.unsplash.com/photo-1569605803663-e9337d901ff9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
-  },
-];
+// const posts = [
+//   {
+//     title: "Designing Dashboards",
+//     body: "ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae",
+//     Author: "zawtun",
+//     date: "02.02.2021",
+//     image:
+//       "https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+//   },
+//   {
+//     title: "nesciunt quas odio",
+//     body: "ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae",
+//     Author: "zawtun",
+//     date: "22.02.2020",
+//     image:
+//       "https://images.unsplash.com/photo-1525373698358-041e3a460346?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
+//   },
+//   {
+//     title: "nesciunt quas odio",
+//     body: "ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae",
+//     Author: "zawtun",
+//     date: "02.02.2021",
+//     image:
+//       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+//   },
+//   {
+//     title: "Designing Dashboards",
+//     body: "ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae",
+//     Author: "zawtun",
+//     date: "02.02.2021",
+//     image:
+//       "https://images.unsplash.com/photo-1504890001746-a9a68eda46e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1087&q=80",
+//   },
+//   {
+//     title: "nesciunt quas odio",
+//     body: "ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae",
+//     Author: "zawtun",
+//     date: "22.02.2020",
+//     image:
+//       "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHdlYiUyMGRlc2lnbmVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+//   },
+//   {
+//     title: "nesciunt quas odio",
+//     body: "ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae",
+//     Author: "zawtun",
+//     date: "02.02.2021",
+//     image:
+//       "https://images.unsplash.com/photo-1541364983171-a8ba01e95cfc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+//   },
+//   {
+//     title: "nesciunt quas odio",
+//     body: "ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae",
+//     Author: "zawtun",
+//     date: "07.04.2021",
+//     image:
+//       "https://images.unsplash.com/photo-1569605803663-e9337d901ff9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
+//   },
+// ];
 
-export default function Posts() {
+export default function Posts(props) {
+  console.log(props.posts.allPost)
   return (
     <>
       <Box
@@ -82,7 +82,7 @@ export default function Posts() {
         <Typography variant="h3">Featured Works</Typography>
       </Box>
 
-      {posts.map((post) => (
+      {props.posts.allPost.map((post) => (
         <>
           <Box
             sx={{
@@ -103,8 +103,8 @@ export default function Posts() {
               sx={{
                 position: "relative",
                 borderRadius: "5%",
-                width: { xs: 420, md: 370 },
-                height: { xs: 400, md: 350 },
+                width: { xs: 420, md: 350 },
+                height: { xs: 400, md: 270 },
                 overflow: "hidden",
                 fontWeight: "bolder",
                 fontSize: "clamp(2.5rem,5vw,3rem)",
@@ -112,7 +112,7 @@ export default function Posts() {
             >
               <Image
                 objectFit="cover"
-                src={post.image}
+                src={post.mainImage.asset.url}
                 alt="Zaw Z Tun"
                 layout="fill"
               />
@@ -122,7 +122,7 @@ export default function Posts() {
               <Box
                 sx={{
                   display: "flex",
-                  // padding:"1rem",
+                 padding:"1rem",
                   gap: "1em",
                   flexBasis: {
                     xs: "100%",
@@ -141,6 +141,7 @@ export default function Posts() {
                     padding: "5px",
                     color: "white",
                   }}
+                
                 >
                   {post.date}
                 </Typography>

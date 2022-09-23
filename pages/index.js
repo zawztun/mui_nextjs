@@ -10,9 +10,17 @@ import CustomContainer  from '../layout/Container'
 export async function getStaticProps() {
   const { data } = await client.query({
     query: gql`
-    query all {
-        allPost{title},
+    query {
+      allPost {
+        title
+        mainImage{
+          asset{
+            url
+          }
+        }
       }
+      
+    } 
     `,
   });
 console.log(data)
@@ -23,12 +31,12 @@ console.log(data)
  };
 }
 export default function Index(props) {
-  console.log(props)
+  // console.log(props)
   return (
     <div>
       <CustomContainer>
         <Hero/>
-        <Posts/> 
+        <Posts posts = {props.data}/> 
         {/* <Card/> */}
       </CustomContainer>
     </div>
