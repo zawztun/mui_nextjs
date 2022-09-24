@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import { Divider, Grid } from "@mui/material";
 import Image from "next/image";
+import dateFormat from "dateformat";
 
 // const posts = [
 //   {
@@ -65,7 +66,7 @@ import Image from "next/image";
 // ];
 
 export default function Posts(props) {
-  console.log(props.posts.allPost)
+  // console.log(props.posts.allPost)
   return (
     <>
       <Box
@@ -84,7 +85,7 @@ export default function Posts(props) {
 
       {props.posts.allPost.map((post) => (
         <>
-          <Box
+          <Box 
             sx={{
               display: "flex",
               flexDirection: {
@@ -99,7 +100,7 @@ export default function Posts(props) {
               },
             }}
           >
-              <Box
+              <Box key = {post.title}
               sx={{
                 position: "relative",
                 borderRadius: "5%",
@@ -143,14 +144,14 @@ export default function Posts(props) {
                   }}
                 
                 >
-                  {post.date}
+                  {dateFormat(post._createdAt, "mediumDate")}
                 </Typography>
-                <Typography variant="caption" display="block" gutterBottom>
-                  Author: {post.Author}
-                </Typography>
+                {/* <Typography variant="caption" display="block" gutterBottom>
+                  Author: {post.author.name}
+                </Typography> */}
               </Box>
               <Typography variant="body1" gutterBottom>
-                {post.body}
+                {post.description}
               </Typography>
             </Box>
           </Box>

@@ -13,17 +13,25 @@ export async function getStaticProps() {
     query {
       allPost {
         title
+        description
         mainImage{
           asset{
             url
           }
         }
+       
+        author{
+          name
+        }
+        categories{
+          description
+        }
+         _createdAt
       }
-      
-    } 
+    }
     `,
   });
-console.log(data)
+
   return {
     props: {
      data
@@ -31,7 +39,7 @@ console.log(data)
  };
 }
 export default function Index(props) {
-  // console.log(props)
+   console.log(props)
   return (
     <div>
       <CustomContainer>
