@@ -78,6 +78,7 @@ export default function Posts(props) {
           },
           padding: "1em",
           textAlign: "center",
+          overflow:"hidden"
         }}
       >
         <Typography variant="h3">Featured Works</Typography>
@@ -100,15 +101,16 @@ export default function Posts(props) {
               },
             }}
           >
-              <Box key = {post.title}
+              <Box 
               sx={{
                 position: "relative",
                 borderRadius: "5%",
-                width: { xs: 420, md: 350 },
-                height: { xs: 400, md: 270 },
+                width: { xs: "auto", md: 257 },
+                height: { xs: 300, md: 227 },
                 overflow: "hidden",
                 fontWeight: "bolder",
                 fontSize: "clamp(2.5rem,5vw,3rem)",
+                
               }}
             >
               <Image
@@ -118,6 +120,7 @@ export default function Posts(props) {
                 layout="fill"
               />
             </Box>
+
             <Box>
               <Typography variant="h4">{post.title}</Typography>
               <Box
@@ -146,13 +149,21 @@ export default function Posts(props) {
                 >
                   {dateFormat(post._createdAt, "mediumDate")}
                 </Typography>
-                {/* <Typography variant="caption" display="block" gutterBottom>
+                <Typography variant="caption" display="block" gutterBottom>
                   Author: {post.author.name}
-                </Typography> */}
+                </Typography>
               </Box>
-              <Typography variant="body1" gutterBottom>
-                {post.description}
-              </Typography>
+              <Box 
+               sx={{
+                width: { xs: "300", md: 750 },
+                height: { xs:"auto", md:"auto"},
+                textAlign:"left"
+              }}
+              >
+              <Typography variant="body1"  display="block" gutterBottom>
+                 {post.description}
+                </Typography>
+              </Box>
             </Box>
           </Box>
           <Divider />
