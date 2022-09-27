@@ -76,12 +76,16 @@ export default function Posts(props) {
             xs: "column",
             md: "row",
           },
-          padding: "1em",
+         
           textAlign: "center",
           overflow:"hidden"
         }}
       >
-        <Typography variant="h3">Featured Works</Typography>
+        <Typography 
+        sx = {{ paddingLeft:'1em', fontWeight:'bolder',}}
+        variant="h5"
+
+        >Featured Works</Typography>
       </Box>
 
       {props.posts.allPost.map((post) => (
@@ -94,7 +98,7 @@ export default function Posts(props) {
                 md: "row",
               },
               padding: "1em",
-              gap: "1em",
+              gap:'1em',
               textAlign: {
                 xs: "center",
                 md: "left",
@@ -105,12 +109,12 @@ export default function Posts(props) {
               sx={{
                 position: "relative",
                 borderRadius: "5%",
-                width: { xs: "auto", md: 257 },
+                width: { xs: "auto",
+                 md: 257 },
                 height: { xs: 300, md: 227 },
                 overflow: "hidden",
-                fontWeight: "bolder",
+                // fontWeight: "bolder",
                 fontSize: "clamp(2.5rem,5vw,3rem)",
-                
               }}
             >
               <Image
@@ -121,12 +125,14 @@ export default function Posts(props) {
               />
             </Box>
 
-            <Box>
-              <Typography variant="h4">{post.title}</Typography>
+            <Box sx = {{padding:'1em'}}>
+              <Typography 
+                sx = {{fontWeight:'bolder'}}
+                variant="h5"
+              >{post.title}</Typography>
               <Box
                 sx={{
                   display: "flex",
-                 padding:"1rem",
                   gap: "1em",
                   flexBasis: {
                     xs: "100%",
@@ -136,21 +142,25 @@ export default function Posts(props) {
                 }}
               > 
                 <Typography
+                  sx = {{
+                    fontStyle: "italic"
+                  }}
                   variant="button"
                   display="block"
                   gutterBottom
-                  sx={{
-                    backgroundColor: "black",
-                    borderRadius: "10%",
-                    padding: "5px",
-                    color: "white",
-                  }}
+              
                 
                 >
                   {dateFormat(post._createdAt, "mediumDate")}
                 </Typography>
-                <Typography variant="caption" display="block" gutterBottom>
-                  Author: {post.author.name}
+                <Typography  display="block" gutterBottom  
+                sx={{
+                    backgroundColor: "black",
+                    borderRadius: "10%",
+                    color: "white",
+                    
+                  }}>
+                  {post.title}
                 </Typography>
               </Box>
               <Box 
@@ -160,13 +170,17 @@ export default function Posts(props) {
                 textAlign:"left"
               }}
               >
-              <Typography variant="body1"  display="block" gutterBottom>
+              <Typography 
+              sx = {{
+                fontWeight:'700',
+                color:"#21243D"
+              }}
+              variant="body1"  display="block" gutterBottom>
                  {post.description}
                 </Typography>
               </Box>
             </Box>
           </Box>
-          <Divider />
         </>
       ))}
     </>
