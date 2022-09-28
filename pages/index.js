@@ -1,10 +1,13 @@
 import Hero from '@/components/Hero'
-import Card from '@/components/Cards';
 import Posts from '@/components/Posts'
 import React from 'react'
 import { gql } from "@apollo/client";
 import client from "@/utils/apollo";
 import CustomContainer  from '../layout/Container'
+import { Card } from '@mui/material';
+import MyCard from '@/components/MyCard';
+
+
 
 
 export async function getStaticProps() {
@@ -44,8 +47,8 @@ export default function Index(props) {
     <div>
       <CustomContainer>
         <Hero/>
-        <Posts posts = {props.data}/> 
-        {/* <Card/> */}
+        <Posts posts = {props.data}/>
+        <MyCard posts = {props.data}/>
       </CustomContainer>
     </div>
   )

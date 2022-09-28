@@ -14,6 +14,10 @@ const Container = ({children}) => {
         md: "80%",
       },
       mx: "auto",
+      padding:{
+        xs:'1em',
+        md:0
+      }
     }}>
         <Header/>
             {children}

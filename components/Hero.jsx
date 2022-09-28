@@ -15,8 +15,8 @@ const Hero = () => {
           xs: "column-reverse",
           md: "row",
         },
-        padding: "1em",
         gap: "1em",
+        marginBottom:"4em"
       }}
     >
       <Box

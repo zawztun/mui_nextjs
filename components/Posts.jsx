@@ -2,7 +2,6 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
-import { Divider, Grid } from "@mui/material";
 import Image from "next/image";
 import dateFormat from "dateformat";
 
@@ -68,7 +67,12 @@ import dateFormat from "dateformat";
 export default function Posts(props) {
   // console.log(props.posts.allPost)
   return (
-    <>
+    <Box
+      sx={{
+        marginBottom: "4em",
+        color: "#21243D",
+      }}
+    >
       <Box
         sx={{
           display: "flex",
@@ -76,113 +80,114 @@ export default function Posts(props) {
             xs: "column",
             md: "row",
           },
-         
+
           textAlign: "center",
-          overflow:"hidden"
+          overflow: "hidden",
         }}
       >
-        <Typography 
-        sx = {{ paddingLeft:'1em', fontWeight:'bolder',}}
-        variant="h5"
-
-        >Featured Works</Typography>
+        <Typography
+          sx={{ fontWeight: "bolder", marginBottom: "1em" }}
+          variant="h4"
+        >
+          Featured Works
+        </Typography>
       </Box>
-
-      {props.posts.allPost.map((post) => (
-        <>
-          <Box 
-            sx={{
-              display: "flex",
-              flexDirection: {
-                xs: "column",
-                md: "row",
-              },
-              padding: "1em",
-              gap:'1em',
-              textAlign: {
-                xs: "center",
-                md: "left",
-              },
-            }}
-          >
-              <Box 
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "2em",
+        }}
+      >
+        {props.posts.allPost.map((post) => (
+          <>
+            <Box
               sx={{
-                position: "relative",
-                borderRadius: "5%",
-                width: { xs: "auto",
-                 md: 257 },
-                height: { xs: 300, md: 227 },
-                overflow: "hidden",
-                // fontWeight: "bolder",
-                fontSize: "clamp(2.5rem,5vw,3rem)",
+                display: "flex",
+                flexDirection: {
+                  xs: "column",
+                  md: "row",
+                },
+                gap: {
+                  xs:"1em",
+                  md:"2em"
+                }
               }}
             >
-              <Image
-                objectFit="cover"
-                src={post.mainImage.asset.url}
-                alt="Zaw Z Tun"
-                layout="fill"
-              />
-            </Box>
+              <Box
+                sx={{
+                  position: "relative",
+                  borderRadius: "5%",
+                  width: { xs: "100%", md: 257 },
+                  height: { xs: "auto", md: 227 },
+                  aspectRatio:{
+                    xs:"16/9"
+                  },
+                  overflow: "hidden",
+                  minWidth: 250,
+                  // fontWeight: "bolder",
+                  fontSize: "clamp(2.5rem,5vw,3rem)",
+                }}
+              >
+                <Image
+                  objectFit="cover"
+                  src={post.mainImage.asset.url}
+                  alt="Zaw Z Tun"
+                  layout="fill"
+                />
+              </Box>
 
-            <Box sx = {{padding:'1em'}}>
-              <Typography 
-                sx = {{fontWeight:'bolder'}}
-                variant="h5"
-              >{post.title}</Typography>
               <Box
                 sx={{
                   display: "flex",
-                  gap: "1em",
-                  flexBasis: {
-                    xs: "100%",
-                    md: "50%",
-                  },
-                  placeItems: "center",
+                  flexDirection: "column",
+                  gap:'1em',
+                  py:'1em'
                 }}
-              > 
-                <Typography
-                  sx = {{
-                    fontStyle: "italic"
-                  }}
-                  variant="button"
-                  display="block"
-                  gutterBottom
-              
-                
-                >
-                  {dateFormat(post._createdAt, "mediumDate")}
-                </Typography>
-                <Typography  display="block" gutterBottom  
-                sx={{
-                    backgroundColor: "black",
-                    borderRadius: "10%",
-                    color: "white",
-                    
-                  }}>
+              >
+                <Typography sx={{ fontWeight: "bolder", fontSize: "1.5em" }}>
                   {post.title}
                 </Typography>
-              </Box>
-              <Box 
-               sx={{
-                width: { xs: "300", md: 750 },
-                height: { xs:"auto", md:"auto"},
-                textAlign:"left"
-              }}
-              >
-              <Typography 
-              sx = {{
-                fontWeight:'700',
-                color:"#21243D"
-              }}
-              variant="body1"  display="block" gutterBottom>
-                 {post.description}
-                </Typography>
+                <Box
+                  sx={{
+                    display: "flex",
+                    placeItems: "center",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontStyle: "italic",
+                    }}
+                    variant="button"
+                    display="block"
+                    gutterBottom
+                  >
+                    {dateFormat(post._createdAt, "mediumDate")}
+                  </Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: { xs: "300", md: 750 },
+                    height: { xs: "auto", md: "auto" },
+                    textAlign: "left",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      color: "#21243D",
+                    }}
+                    variant="body1"
+                    display="block"
+                    gutterBottom
+                  >
+                    {post.description}
+                  </Typography>
+                </Box>
               </Box>
             </Box>
-          </Box>
-        </>
-      ))}
-    </>
+          </>
+        ))}
+      </Box>
+    </Box>
   );
 }
