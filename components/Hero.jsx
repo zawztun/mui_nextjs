@@ -16,7 +16,8 @@ const Hero = () => {
           md: "row",
         },
         gap: "1em",
-        marginBottom:"4em"
+        marginBottom:"4em",
+        py:'2em'
       }}
     >
       <Box

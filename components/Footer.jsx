@@ -11,8 +11,8 @@ const Footer = () => {
       display: "flex",
       flexDirection: "rows",
       justifyContent:'center',
-      padding: "1em",
-      gap: "1em",
+      py: "4em",
+      gap: "2em",
     }}>
           <Button>
             <GitHubIcon />

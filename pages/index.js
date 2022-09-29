@@ -45,7 +45,7 @@ export default function Index(props) {
    console.log(props)
   return (
     <div>
-      <CustomContainer>
+      <CustomContainer >
         <Hero/>
         <Posts posts = {props.data}/>
         <MyCard posts = {props.data}/>

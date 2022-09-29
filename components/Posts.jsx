@@ -80,7 +80,6 @@ export default function Posts(props) {
             xs: "column",
             md: "row",
           },
-
           textAlign: "center",
           overflow: "hidden",
         }}
