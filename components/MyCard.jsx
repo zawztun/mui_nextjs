@@ -1,8 +1,9 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Image from "next/image";
 import dateFormat from "dateformat";
+
+
 
 const MyCard = (props) => {
   return (
@@ -14,7 +15,7 @@ const MyCard = (props) => {
             xs: "column",
             md: "row",
           },
-          textAlign: "center",
+          textAlign: "left",
           overflow: "hidden",
         }}
       >
@@ -29,7 +30,7 @@ const MyCard = (props) => {
         sx={{
           display: "grid",
           gridTemplateColumns: {
-            md: "repeat(auto-fill, minmax(450px, 1fr))",
+            md: "repeat(auto-fill, minmax(350px, 1fr))",
           },
           gap: "2em",
           // overflow: "hidden",
@@ -41,7 +42,7 @@ const MyCard = (props) => {
             <Box
               sx={{
                 padding: "1em",
-                boxShadow: "1px .5px 1px .5px",
+                boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
                 borderRadius: "15px",
               }}
             >
@@ -65,7 +66,13 @@ const MyCard = (props) => {
                 >
                   <Typography
                     sx={{
-                      fontStyle: "italic",
+                      fontSize:'11px',
+                      backgroundColor:   "#21243D",
+                      //boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+                      color:"white",
+                      borderRadius:'10px',
+                      padding:"2px"
+
                     }}
                     variant="button"
                     display="block"
@@ -79,9 +86,6 @@ const MyCard = (props) => {
                     width: { xs: "350", md: "auto" },
                     height: { xs: "auto", md: "auto" },
                     textAlign: "left",
-                    // aspectRatio:{
-                    //   xs:"16/4"
-                    // },
                   }}
                 >
                   <Typography

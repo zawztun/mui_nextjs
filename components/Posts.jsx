@@ -65,7 +65,7 @@ import dateFormat from "dateformat";
 // ];
 
 export default function Posts(props) {
-  // console.log(props.posts.allPost)
+  console.log(props.posts.allPost);
   return (
     <Box
       sx={{
@@ -80,7 +80,7 @@ export default function Posts(props) {
             xs: "column",
             md: "row",
           },
-          textAlign: "center",
+          textAlign: "left",
           overflow: "hidden",
         }}
       >
@@ -108,9 +108,9 @@ export default function Posts(props) {
                   md: "row",
                 },
                 gap: {
-                  xs:"1em",
-                  md:"2em"
-                }
+                  xs: "1em",
+                  md: "2em",
+                },
               }}
             >
               <Box
@@ -119,8 +119,8 @@ export default function Posts(props) {
                   borderRadius: "5%",
                   width: { xs: "100%", md: 257 },
                   height: { xs: "auto", md: 227 },
-                  aspectRatio:{
-                    xs:"16/9"
+                  aspectRatio: {
+                    xs: "16/9",
                   },
                   overflow: "hidden",
                   minWidth: 250,
@@ -140,8 +140,8 @@ export default function Posts(props) {
                 sx={{
                   display: "flex",
                   flexDirection: "column",
-                  gap:'1em',
-                  py:'1em'
+                  gap: "1em",
+                  py: "1em",
                 }}
               >
                 <Typography sx={{ fontWeight: "bolder", fontSize: "1.5em" }}>

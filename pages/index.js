@@ -6,6 +6,7 @@ import client from "@/utils/apollo";
 import CustomContainer  from '../layout/Container'
 import { Card } from '@mui/material';
 import MyCard from '@/components/MyCard';
+import PostDetails from '@/components/PostDetails';
 
 
 
@@ -49,6 +50,9 @@ export default function Index(props) {
         <Hero/>
         <Posts posts = {props.data}/>
         <MyCard posts = {props.data}/>
+        
+         <PostDetails/> 
+        
       </CustomContainer>
     </div>
   )
