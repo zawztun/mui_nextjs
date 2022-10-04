@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import Image from "next/image";
 import dateFormat from "dateformat";
+import Link from 'next/link'
 
 // const posts = [
 //   {
@@ -65,7 +66,6 @@ import dateFormat from "dateformat";
 // ];
 
 export default function Posts(props) {
-  console.log(props.posts.allPost);
   return (
     <Box
       sx={{
@@ -99,7 +99,7 @@ export default function Posts(props) {
         }}
       >
         {props.posts.allPost.map((post) => (
-          <>
+          <Link key = {post.title} href = {`/posts/${post?.slug?.current}`} >
             <Box
               sx={{
                 display: "flex",
@@ -184,7 +184,7 @@ export default function Posts(props) {
                 </Box>
               </Box>
             </Box>
-          </>
+          </Link>
         ))}
       </Box>
     </Box>

@@ -4,9 +4,7 @@ import React from 'react'
 import { gql } from "@apollo/client";
 import client from "@/utils/apollo";
 import CustomContainer  from '../layout/Container'
-import { Card } from '@mui/material';
 import MyCard from '@/components/MyCard';
-import PostDetails from '@/components/PostDetails';
 
 
 
@@ -17,6 +15,9 @@ export async function getStaticProps() {
     query {
       allPost {
         title
+        slug{
+          current
+        }
         description
         mainImage{
           asset{
@@ -43,15 +44,13 @@ export async function getStaticProps() {
  };
 }
 export default function Index(props) {
-   console.log(props)
+
   return (
     <div>
       <CustomContainer >
         <Hero/>
         <Posts posts = {props.data}/>
         <MyCard posts = {props.data}/>
-        
-         <PostDetails/> 
         
       </CustomContainer>
     </div>

@@ -2,6 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import dateFormat from "dateformat";
+import Link from 'next/link'
 
 
 
@@ -38,7 +39,11 @@ const MyCard = (props) => {
         }}
       >
         {props.posts.allPost.map((post) => (
-          <>
+      
+          <Link key = {post.title} href = {`/posts/${post?.slug?.current}`} 
+        
+          >
+            
             <Box
               sx={{
                 padding: "1em",
@@ -46,6 +51,7 @@ const MyCard = (props) => {
                 borderRadius: "15px",
               }}
             >
+                  {/* {console.log(post)} */}
               <Box
                 sx={{
                   display: "flex",
@@ -101,7 +107,7 @@ const MyCard = (props) => {
                 </Box>
               </Box>
             </Box>
-          </>
+          </Link>
         ))}
       </Box>
     </Box>
