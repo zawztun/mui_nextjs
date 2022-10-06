@@ -5,6 +5,9 @@ import Image from "next/image";
 import dateFormat from "dateformat";
 import { gql } from "@apollo/client";
 import client from "@/utils/apollo";
+import { ListItem } from "@mui/material";
+import { ListItemDecorator } from "@mui/joy";
+import List from '@mui/joy/List';
 
 export const getStaticPaths = async () => {
   const { data } = await client.query({
@@ -33,8 +36,10 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
+    console.log(params)
   const { data } = await client.query({
-    variable: { slug: params.slug },
+
+    variables: { slug: params.post },
     query: gql`
       query POST_DETAILS($slug: String) {
         allPost(where: { slug: { current: { eq: $slug } } }) {
@@ -49,8 +54,9 @@ export const getStaticProps = async ({ params }) => {
       }
     `,
   });
+  console.log(data)
   return {
-    props: { post: data },
+    props: { post: data.allPost[0] },
   };
 };
 
@@ -61,7 +67,7 @@ export default function PostDetail({ post }) {
     <Box sx={{ marginBottom: "4em", color: "#21243D" }}>
       <Typography variant="h4" gutterBottom></Typography>
       <Typography variant="h5" gutterBottom>
-        h5. Heading
+        {post.title}
       </Typography>
       <Typography variant="h6" gutterBottom>
         h6. Heading
@@ -135,6 +141,17 @@ export default function PostDetail({ post }) {
           {dateFormat(now, "mediumDate")}
         </Typography>
       </Box>
+
+      <Box>
+        <ListItem>
+        <ListItemDecorator>❤️</ListItemDecorator>
+        <ListItemDecorator>❤️</ListItemDecorator>
+        <ListItemDecorator>❤️</ListItemDecorator>
+        </ListItem>
+     
+      </Box> 
+
+        
     </Box>
   );
 }
