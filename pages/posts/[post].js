@@ -7,7 +7,7 @@ import { gql } from "@apollo/client";
 import client from "@/utils/apollo";
 import { ListItem } from "@mui/material";
 import { ListItemDecorator } from "@mui/joy";
-import List from '@mui/joy/List';
+
 
 export const getStaticPaths = async () => {
   const { data } = await client.query({
@@ -36,9 +36,8 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-    console.log(params)
+  console.log(params);
   const { data } = await client.query({
-
     variables: { slug: params.post },
     query: gql`
       query POST_DETAILS($slug: String) {
@@ -54,24 +53,23 @@ export const getStaticProps = async ({ params }) => {
       }
     `,
   });
-  console.log(data)
+  console.log(data);
   return {
     props: { post: data.allPost[0] },
   };
 };
-
 export default function PostDetail({ post }) {
   console.log(post);
   const now = new Date();
   return (
-    <Box sx={{ marginBottom: "4em", color: "#21243D" }}>
+    <Box sx={{ marginBottom: "2em", color: "#21243D" }}>
       <Typography variant="h4" gutterBottom></Typography>
       <Typography variant="h5" gutterBottom>
         {post.title}
       </Typography>
-      <Typography variant="h6" gutterBottom>
-        h6. Heading
-      </Typography>
+      {/* <Typography variant="h6" gutterBottom>
+        
+      </Typography> */}
       <Box
         sx={{
           position: "relative",
@@ -83,7 +81,7 @@ export default function PostDetail({ post }) {
         }}
       >
         <Image
-          objectFit="cover"
+          objectFit="contain"
           src="/post/rendering.png"
           alt="Zaw Z Tun"
           layout="fill"
@@ -141,17 +139,18 @@ export default function PostDetail({ post }) {
           {dateFormat(now, "mediumDate")}
         </Typography>
       </Box>
-
       <Box>
-        <ListItem>
-        <ListItemDecorator>❤️</ListItemDecorator>
-        <ListItemDecorator>❤️</ListItemDecorator>
-        <ListItemDecorator>❤️</ListItemDecorator>
+        <ListItem
+          sx={{
+            //  padding: "2em",
+            //  textAlign: "left",
+            listStyleType: "disc",
+            display: "list-item",
+          }}
+        >
+          Test
         </ListItem>
-     
-      </Box> 
-
-        
+      </Box>
     </Box>
   );
 }
