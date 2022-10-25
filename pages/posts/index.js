@@ -11,7 +11,7 @@ export async function getStaticProps() {
   const { data } = await client.query({
     query: gql`
       query {
-        allPost(limit: 4, sort: { _createdAt: DESC }) {
+        allPost( sort: { _createdAt: DESC }) {
           title
           slug {
             current
@@ -59,13 +59,10 @@ export async function getStaticProps() {
     },
   };
 }
-export default function Index(props) {
+export default function Index(props) {;
   return (
     <div>
-      <Hero />
       <Posts posts={props.data} />
-      <AllPosts posts = {props.data}/>
-      <MyCard posts={props.data} /> 
     </div>
   );
 }

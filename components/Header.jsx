@@ -9,11 +9,15 @@ import ListItemText from "@mui/material/ListItemText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
 import Typography from "@mui/material/Typography";
-import { blue } from "@mui/material/colors";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import PersonSearchIcon from "@mui/icons-material/PersonSearch";
+import { blue, blueGrey } from "@mui/material/colors";
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { Box } from "@mui/system";
 import Divider from "@mui/material/Divider";
+import Link from "next/link";
+import BallotIcon from '@mui/icons-material/Ballot';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import HomeIcon from '@mui/icons-material/Home';
+import BungalowIcon from '@mui/icons-material/Bungalow';
 
 const lists = ["Blog", "Technologies", "Enveroment"];
 
@@ -54,8 +58,8 @@ function SimpleDialog(props) {
                 key={list}
               >
                 <ListItemAvatar>
-                  <Avatar sx={{ bgcolor: blue[100], color: blue[600] }}>
-                    <PersonSearchIcon />
+                  <Avatar sx={{ bgcolor:blue[100], color: blue[600] }}>
+                    <ExitToAppIcon />
                   </Avatar>
                 </ListItemAvatar>
                 <ListItemText primary={list} />
@@ -92,16 +96,24 @@ export default function SimpleDialogDemo() {
       sx={{
         display: "flex",
         justifyContent: "flex-end",
-        gap: "2em",
-        py: "2em",
+  
+        padding: '2em'
+       
+        
       }}
     >
-      <Typography variant="subtitle1" component="div">
-        Selected: {selectedValue}
-      </Typography>
+     <Button  onClick={handleClickOpen}>
+     <Avatar sx={{ bgcolor:blue[100], color: blue[600] }}>
+       <BallotIcon/>
+       </Avatar>
+      </Button>
       <br />
-      <Button variant="outlined" onClick={handleClickOpen}>
-        <MoreVertIcon />
+      <Button 
+      onClick={handleClickOpen} >
+        <Avatar sx={{ bgcolor:blue[100], color: blue[600] }}>
+          
+     <DarkModeIcon/>
+        </Avatar>
       </Button>
       <Box>
         <SimpleDialog

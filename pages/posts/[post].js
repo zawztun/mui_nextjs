@@ -5,8 +5,22 @@ import Image from "next/image";
 import dateFormat from "dateformat";
 import { gql } from "@apollo/client";
 import client from "@/utils/apollo";
-import { ListItem } from "@mui/material";
-import { ListItemDecorator } from "@mui/joy";
+import { List, ListItem } from "@mui/material";
+import {PortableText} from '@portabletext/react'
+import SanityImage from '@/components/sanityImage'
+import SanityCustom from "@/components/portable/SanityCustom";
+import MetaCard from "@/components/MetaCard";
+
+import { useEffect } from "react"
+
+import Prism from "prismjs"
+
+require("prismjs/components/prism-javascript")
+
+require("prismjs/components/prism-css")
+
+require("prismjs/components/prism-jsx")
+
 
 
 export const getStaticPaths = async () => {
@@ -43,6 +57,7 @@ export const getStaticProps = async ({ params }) => {
       query POST_DETAILS($slug: String) {
         allPost(where: { slug: { current: { eq: $slug } } }) {
           _id
+          description
           title
           bodyRaw
           categories {
@@ -59,98 +74,47 @@ export const getStaticProps = async ({ params }) => {
   };
 };
 export default function PostDetail({ post }) {
-  console.log(post);
-  const now = new Date();
+
+  useEffect(()=>{
+    Prism.highlightAll()
+  },[])
   return (
-    <Box sx={{ marginBottom: "2em", color: "#21243D" }}>
-      <Typography variant="h4" gutterBottom></Typography>
-      <Typography variant="h5" gutterBottom>
+    <>
+    <MetaCard post = {post}/>
+    <Box sx={{ marginBottom: "2em", color: "#21243D", 
+    fontSize: "clamp(1.5em,5vw,1em)", width: { xs:300, md: 750 },
+  
+      display: "flex",
+      flexDirection: "column",
+      gap: "1em",
+      px:{sm:'2em', md:'4em'},
+      lineHeight:'1.5em',
+      textAlign:"center",
+      flexBasis: {
+        xs: "100%",
+        md: "50%",
+      },
+      textAlign: "left"
+    }}>
+      {/* <Typography variant="h3" gutterBottom>
+      </Typography>
+      <Typography variant="h4" gutterBottom sx = {{fontWeight : "bold"}}>
         {post.title}
       </Typography>
-      {/* <Typography variant="h6" gutterBottom>
-        
-      </Typography> */}
-      <Box
-        sx={{
-          position: "relative",
-          justifyContent: "center",
-          alignItems: "center",
-          width: { xs: 250, md: "auto" },
-          height: { xs: 230, md: 270 },
-          overflow: "hidden",
-        }}
-      >
-        <Image
-          objectFit="contain"
-          src="/post/rendering.png"
-          alt="Zaw Z Tun"
-          layout="fill"
-        />
-      </Box>
-
-      <Typography variant="body1" gutterBottom>
-        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-        blanditiis tenetur unde suscipit, quam beatae rerum inventore
-        consectetur, neque doloribus, cupiditate numquam dignissimos laborum
-        fugiat deleniti? Eum quasi quidem quibusdam.
-      </Typography>
-      <Typography variant="body2" gutterBottom>
-        body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-        blanditiis tenetur unde suscipit, quam beatae rerum inventore
-        consectetur, neque doloribus, cupiditate numquam dignissimos laborum
-        fugiat deleniti? Eum quasi quidem quibusdam.
-      </Typography>
-      <Typography variant="subtitle1" gutterBottom>
-        subtitle1. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Quos blanditiis tenetur
-      </Typography>
-      <Typography variant="subtitle2" gutterBottom>
-        subtitle2. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Quos blanditiis tenetur
-      </Typography>
-      <Typography variant="button" display="block" gutterBottom>
-        button text
-      </Typography>
-      <Typography variant="caption" display="block" gutterBottom>
-        caption text
-      </Typography>
-      <Typography variant="overline" display="block" gutterBottom>
-        overline text
-      </Typography>
-      <Box
-        sx={{
-          display: "flex",
-          placeItems: "center",
-        }}
-      >
-        <Typography
-          sx={{
-            fontSize: "11px",
-            backgroundColor: "#21243D",
-            //boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
-            color: "white",
-            borderRadius: "10px",
-            padding: "2px",
-          }}
-          variant="button"
-          display="block"
-          gutterBottom
-        >
-          {dateFormat(now, "mediumDate")}
-        </Typography>
-      </Box>
+      <Typography
+                    variant="body1"
+                    display="block"
+                    gutterBottom
+                    sx={{
+                      color: "#21243D",
+                    }}
+                  >
+                    {post.description}
+           </Typography> */}
       <Box>
-        <ListItem
-          sx={{
-            //  padding: "2em",
-            //  textAlign: "left",
-            listStyleType: "disc",
-            display: "list-item",
-          }}
-        >
-          Test
-        </ListItem>
+        <PortableText value={post.bodyRaw} components={SanityCustom} />
       </Box>
     </Box>
+    </>
   );
 }

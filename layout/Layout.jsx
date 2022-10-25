@@ -2,22 +2,22 @@ import React from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { Box } from '@mui/material'
-import { fontSize } from '@mui/system'
 
 
-
-const Container = ({children}) => {
+const Layout = ({children}) => {
   return (
     <Box sx={{
-      lineHeight: 1.5,
+      lineHeight: '1.5em',
       fontSize:{
-          sm:'2em',
+          sm:'3em',
           md:'1em'
       },
       width: {
         xs: "100%",
         md: "80%",
       },
+
+      
       mx: "auto",
       padding:{
         xs:'1em',
@@ -27,8 +27,9 @@ const Container = ({children}) => {
         <Header/>
             {children}
         <Footer/>
+       
     </Box>
   )
 }
 
-export default Container
+export default Layout

@@ -1,52 +1,33 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import dateFormat from "dateformat";
-import Link from 'next/link'
+import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@mui/material";
-import SendIcon from '@mui/icons-material/Send';
 
+const AllPosts = (props) => {
+  const [visible, setVisible] = useState(0);
 
-
-const MyCard = (props) => {
+  const showMore = () => {
+    setVisible((pre) => pre + 3);
+  };
   return (
-    <Box>
-
+    <Box
+      sx={{
+        marginBottom: "4em",
+        color: "#21243D",
+      }}
+    >
       <Box
         sx={{
           display: "flex",
-          flexDirection: {
-            xs: "column",
-            md: "row",
-          },
-          textAlign: "left",
-          overflow: "hidden",
-        }}
-      >
-        <Typography
-          sx={{ fontWeight: "bolder", marginBottom: "1em" }}
-          variant="h4"
-        >
-          Snippets
-        </Typography>
-      </Box>
-      <Box
-        sx={{
-          display: "grid",
-          gridTemplateColumns: {
-            md: "repeat(auto-fill, minmax(350px, 1fr))",
-          },
+          flexDirection: "column",
           gap: "2em",
-          // overflow: "hidden",
-          // minWidth: 25
         }}
       >
-        {props.posts.allSnippet.map((post) => (
-      
-          <Link key = {post.title} href = {`/snippets/${post?.slug?.current}`} 
-        
-          >
-            
+        {props.posts.allPost.slice(0, visible).map((post) => (
+          <Link key={post.title} href={`/posts/${post?.slug?.current}`}>
             <Box
               sx={{
                 padding: "1em",
@@ -54,7 +35,7 @@ const MyCard = (props) => {
                 borderRadius: "15px",
               }}
             >
-                  {/* {console.log(post)} */}
+           
               <Box
                 sx={{
                   display: "flex",
@@ -75,13 +56,12 @@ const MyCard = (props) => {
                 >
                   <Typography
                     sx={{
-                      fontSize:'11px',
-                      backgroundColor:   "#21243D",
+                      fontSize: "11px",
+                      backgroundColor: "#21243D",
                       //boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
-                      color:"white",
-                      borderRadius:'10px',
-                      padding:"2px"
-
+                      color: "white",
+                      borderRadius: "10px",
+                      padding: "2px",
                     }}
                     variant="button"
                     display="block"
@@ -113,17 +93,8 @@ const MyCard = (props) => {
           </Link>
         ))}
       </Box>
-      <Box sx = {{ display:'flex', justifyContent:'flex-end',py:'3em', 
-          }}>
-       
-          <Link href="/snippets" >
-            <Button variant="text" endIcon={<SendIcon />}>
-          Snippets
-</Button>
-          </Link>
-       
-      </Box>
+     
     </Box>
   );
 };
-export default MyCard;
+export default AllPosts;
