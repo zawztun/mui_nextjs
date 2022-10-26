@@ -3,15 +3,14 @@ import Posts from "@/components/Posts";
 import React from "react";
 import { gql } from "@apollo/client";
 import client from "@/utils/apollo";
-import MyCard from "@/components/MyCard";
+import Snippet from "@/components/Snippet";
 import AllPosts from "@/components/AllPosts";
-
 
 export async function getStaticProps() {
   const { data } = await client.query({
     query: gql`
       query {
-        allPost( sort: { _createdAt: DESC }) {
+        allPost(sort: { _createdAt: DESC }) {
           title
           slug {
             current
@@ -59,7 +58,7 @@ export async function getStaticProps() {
     },
   };
 }
-export default function Index(props) {;
+export default function Index(props) {
   return (
     <div>
       <Posts posts={props.data} />

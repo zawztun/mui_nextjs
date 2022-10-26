@@ -1,15 +1,13 @@
-
-
 import React from "react";
 import { gql } from "@apollo/client";
 import client from "@/utils/apollo";
-import MyCard from "@/components/MyCard";
+import Snippet from "@/components/Snippet";
 
 export async function getStaticProps() {
   const { data } = await client.query({
     query: gql`
       query {
-        allPost( sort: { _createdAt: DESC }) {
+        allPost(sort: { _createdAt: DESC }) {
           title
           slug {
             current
@@ -57,10 +55,10 @@ export async function getStaticProps() {
     },
   };
 }
-export default function Index(props) {;
+export default function Index(props) {
   return (
     <div>
-      <MyCard posts={props.data} />
+      <Snippet posts={props.data} />
     </div>
   );
 }

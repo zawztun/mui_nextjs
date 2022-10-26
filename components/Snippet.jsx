@@ -6,9 +6,7 @@ import Link from 'next/link'
 import { Button } from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
 
-
-
-const MyCard = (props) => {
+const Snippet = (props) => {
   return (
     <Box>
 
@@ -52,6 +50,7 @@ const MyCard = (props) => {
                 padding: "1em",
                 boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
                 borderRadius: "15px",
+                cursor: "pointer",
               }}
             >
                   {/* {console.log(post)} */}
@@ -126,4 +125,4 @@ const MyCard = (props) => {
     </Box>
   );
 };
-export default MyCard;
+export default Snippet;

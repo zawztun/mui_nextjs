@@ -1,25 +1,19 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import Button from "@mui/material/Button";
-import Avatar from "@mui/material/Avatar";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemText from "@mui/material/ListItemText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
-import Typography from "@mui/material/Typography";
-import { blue, blueGrey } from "@mui/material/colors";
-import DarkModeIcon from '@mui/icons-material/DarkMode';
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { Box } from "@mui/system";
-import Divider from "@mui/material/Divider";
 import Link from "next/link";
-import BallotIcon from '@mui/icons-material/Ballot';
-import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import HomeIcon from '@mui/icons-material/Home';
-import BungalowIcon from '@mui/icons-material/Bungalow';
+import BallotIcon from "@mui/icons-material/Ballot";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import { IconButton } from "@mui/material";
 
-const lists = ["Blog", "Technologies", "Enveroment"];
+const lists = [{name:"Posts", slug:"posts"},{name: "Snippets", slug:"snippets"}];
 
 function SimpleDialog(props) {
   const { onClose, selectedValue, open } = props;
@@ -40,30 +34,29 @@ function SimpleDialog(props) {
             width: { xs: 350, md: 750 },
             height: { xs: 350, md: "auto" },
             textAlign: "left",
-              "&:hover": {
-                backgroundColor:"black",
-                color: "white",
-              },
-            
-            
+            // "&:hover": {
+            //   backgroundColor:"black",
+            //   color: "white",
+            // },
           }}
         >
           <DialogTitle>More Details ? </DialogTitle>
           <List sx={{ pt: 0 }}>
             {lists.map((list) => (
+          <Link href={`/${list.slug}`}>
               <ListItem
                 button
                 divider
                 onClick={() => handleListItemClick(list)}
-                key={list}
+                key={list.slug}
               >
-                <ListItemAvatar>
-                  <Avatar sx={{ bgcolor:blue[100], color: blue[600] }}>
-                    <ExitToAppIcon />
-                  </Avatar>
-                </ListItemAvatar>
-                <ListItemText primary={list} />
+        
+                <IconButton>
+                  <ExitToAppIcon />
+                </IconButton>
+                <ListItemText primary={list.name} />
               </ListItem>
+            </Link>
             ))}
           </List>
         </Box>
@@ -96,24 +89,16 @@ export default function SimpleDialogDemo() {
       sx={{
         display: "flex",
         justifyContent: "flex-end",
-  
-        padding: '2em'
-       
-        
+
+        padding: "2em",
       }}
     >
-     <Button  onClick={handleClickOpen}>
-     <Avatar sx={{ bgcolor:blue[100], color: blue[600] }}>
-       <BallotIcon/>
-       </Avatar>
-      </Button>
+      <IconButton onClick={handleClickOpen}>
+        <BallotIcon sx={{ color: "black" }} />
+      </IconButton>
       <br />
-      <Button 
-      onClick={handleClickOpen} >
-        <Avatar sx={{ bgcolor:blue[100], color: blue[600] }}>
-          
-     <DarkModeIcon/>
-        </Avatar>
+      <Button onClick={handleClickOpen}>
+        <DarkModeIcon sx={{ color: "black" }} />
       </Button>
       <Box>
         <SimpleDialog
