@@ -9,7 +9,6 @@ import SendIcon from '@mui/icons-material/Send';
 const Snippet = (props) => {
   return (
     <Box>
-
       <Box
         sx={{
           display: "flex",
@@ -35,8 +34,7 @@ const Snippet = (props) => {
             md: "repeat(auto-fill, minmax(350px, 1fr))",
           },
           gap: "2em",
-          // overflow: "hidden",
-          // minWidth: 25
+          
         }}
       >
         {props.posts.allSnippet.map((post) => (
@@ -53,7 +51,7 @@ const Snippet = (props) => {
                 cursor: "pointer",
               }}
             >
-                  {/* {console.log(post)} */}
+                  
               <Box
                 sx={{
                   display: "flex",
@@ -69,17 +67,27 @@ const Snippet = (props) => {
                 <Box
                   sx={{
                     display: "flex",
+                    justifyContent:"space-between",
                     placeItems: "center",
                   }}
                 >
-                  <Typography
-                    sx={{
+               
+        
+                  {post.categories && post.categories.map(cat => (<Box  sx={{
                       fontSize:'11px',
                       backgroundColor:   "#21243D",
-                      //boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
                       color:"white",
                       borderRadius:'10px',
                       padding:"2px"
+
+                    }}
+                    variant="button"
+                    display="block"
+                    gutterBottom
+                    key = {cat.title}>{cat.title}</Box>))}  
+                       <Typography
+                    sx={{
+                      fontSize:'11px',
 
                     }}
                     variant="button"
@@ -96,6 +104,8 @@ const Snippet = (props) => {
                     textAlign: "left",
                   }}
                 >
+                
+
                   <Typography
                     variant="body1"
                     display="block"
@@ -112,6 +122,7 @@ const Snippet = (props) => {
           </Link>
         ))}
       </Box>
+
       <Box sx = {{ display:'flex', justifyContent:'flex-end',py:'3em', 
           }}>
        

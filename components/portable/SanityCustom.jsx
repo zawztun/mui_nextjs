@@ -1,156 +1,137 @@
-
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Image from "next/image";
-
 import { List, ListItem } from "@mui/material";
-import {PortableText} from '@portabletext/react'
-import SanityImage from '@/components/sanityImage'
+// import { PortableText } from "@portabletext/react";
+import SanityImage from "@/components/sanityImage";
 
 //portableText
-let SanityCustom= {
-    types: {
-      image: ({ value }) => {
-        return (
-          <SanityImage {...value} />
-        );
-      },
-      span: ({ children, value }) => {
-        return (
-          <Typography variant="h4" id={value._key}>
-            {children}
-          </Typography>
-        );
-      },
-      code: ({value}) => <Box  sx={{display: "block", 
-
-
-
-
-   
-      }}>
-          <pre className={`language-${value.language}`}>
-            <code>
-              {value.code}
-              </code>
-              </pre>
-        </Box>,
+let SanityCustom = {
+  types: {
+    image: ({ value }) => {
+      return <SanityImage {...value} />;
     },
-    block: {
-      h1: ({ children, value }) => {
-        return (
-          <Typography
-            variant="h1"
-            id={value._key}
-            sx={{ fontSize: "2em", fontWeight: "bold" }}
-          >
-            {children}
-          </Typography>
-         
-        );
-      },
-      h2: ({ children, value }) => {
-        return (
-          <Typography variant="h2" id={value._key}>
-            {children}
-          </Typography>
-        );
-      },
-      h3: ({ children, value }) => {
-        return (
-          <Typography variant="h3" id={value._key}>
-            {children}
-          </Typography>
-        );
-      },
-      h4: ({ children, value }) => {
-        return (
-          <Typography variant="h4" id={value._key}>
-            {children}
-          </Typography>
-        );
-      },
-    
-      normal: ({ children, value }) => {
-        return (
-          <Typography variant="body1" id={value._key}>
-            {children}
-          </Typography>
-        );
-      },
-    },
-    marks: {
-      em: ({ children }) => (
-        <em sx={{ color: "red", display: "inline", fontWeight: "bold" }}>
+    span: ({ children, value }) => {
+      return (
+        <Typography variant="h4" id={value._key}>
           {children}
-        </em>
-        
-      ),
-      
-      
-      code: ({children}) => <Box  
-      // sx={{display: "inline", fontWeight: "bold", color:'blue', padding: '2px',
+        </Typography>
+      );
+    },
+    code: ({ value }) => (
+      <Box sx={{ display: "block" }}>
+        <pre className={`language-${value.language}`}>
+          <code>{value.code}</code>
+        </pre>
+      </Box>
+    ),
+  },
+  block: {
+    h1: ({ children, value }) => {
+      return (
+        <Typography
+          variant="h1"
+          id={value._key}
+          sx={{ fontSize: "2em", fontWeight: "bold" }}
+        >
+          {children}
+        </Typography>
+      );
+    },
+    h2: ({ children, value }) => {
+      return (
+        <Typography variant="h2" id={value._key}>
+          {children}
+        </Typography>
+      );
+    },
+    h3: ({ children, value }) => {
+      return (
+        <Typography variant="h3" id={value._key}>
+          {children}
+        </Typography>
+      );
+    },
+    h4: ({ children, value }) => {
+      return (
+        <Typography variant="h4" id={value._key}>
+          {children}
+        </Typography>
+      );
+    },
 
-      // boxShadow: "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset"
+    normal: ({ children, value }) => {
+      return (
+        <Typography variant="body1" id={value._key}>
+          {children}
+        </Typography>
+      );
+    },
+  },
+  marks: {
+    em: ({ children }) => (
+      <em sx={{ color: "red", display: "inline", fontWeight: "bold" }}>
+        {children}
+      </em>
+    ),
 
-   
-      // }}
+    code: ({ children }) => (
+      <Box>
+        <code className="text-lg text-primary text-purple-700">{children}</code>
+      </Box>
+    ),
+
+    link: ({ value, children }) => {
+      const target = (value?.href || "").startsWith("http")
+        ? "_blank"
+        : undefined;
+      return (
+        <a
+          style={{ color: "green" }}
+          href={value?.href}
+          target={target}
+          rel={target === "_blank" && "noindex nofollow"}
+        >
+          {children}
+        </a>
+      );
+    },
+  },
+  list: {
+    bullet: ({ children }) => <List>{children}</List>,
+    number: ({ children }) => <List>{children}</List>,
+  },
+  listItem: {
+    bullet: ({ children }) => (
+      <ListItem
+        sx={{
+          listStyleType: "disc",
+          display: "list-item",
+        }}
       >
-          <code className="text-lg text-primary text-purple-700">{children}</code>
-        </Box>,
-  
-      link: ({ value, children }) => {
-        const target = (value?.href || "").startsWith("http")
-          ? "_blank"
-          : undefined;
-        return (
-          <a
-            style={{ color: "green" }}
-            href={value?.href}
-            target={target}
-            rel={target === "_blank" && "noindex nofollow"}
-          >
-            {children}
-          </a>
-        );
-      },
-    },
-    list: {
-      bullet: ({ children }) => <List>{children}</List>,
-      number: ({ children }) => <List>{children}</List>,
-    },
-    listItem: {
-      bullet: ({ children }) => (
-        <ListItem
-          sx={{
-            listStyleType: "disc",
-            display: "list-item",
-          }}
-        >
-          ✅ {children}
-        </ListItem>
-      ),
-      number: ({ children }) => (
-        <ListItem
-          sx={{
-            listStyleType: "number",
-            display: "list-item",
-          }}
-        >
-          ✅ {children}
-        </ListItem>
-      ),
-      checkmarks: ({ children }) => <li>✅ {children}</li>,
-    },
-    block: {
-        // Ex. 1: customizing common block types
-        
-        blockquote: ({children}) => <blockquote className="border-l-purple-500">{children}</blockquote>,
-    
-        // Ex. 2: rendering custom styles
-       
-      },
-  };
+        ✅ {children}
+      </ListItem>
+    ),
+    number: ({ children }) => (
+      <ListItem
+        sx={{
+          listStyleType: "number",
+          display: "list-item",
+        }}
+      >
+        ✅ {children}
+      </ListItem>
+    ),
+    checkmarks: ({ children }) => <li>✅ {children}</li>,
+  },
+  block: {
+    // Ex. 1: customizing common block types
 
-export default SanityCustom
+    blockquote: ({ children }) => (
+      <blockquote className="border-l-purple-500">{children}</blockquote>
+    ),
 
+    // Ex. 2: rendering custom styles
+  },
+};
+
+export default SanityCustom;

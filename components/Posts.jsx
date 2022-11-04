@@ -6,10 +6,12 @@ import Image from "next/image";
 import dateFormat from "dateformat";
 import Link from "next/link";
 import SendIcon from '@mui/icons-material/Send';
+import Metatag from "@/components/meta/Metatag";
 
 export default function Posts(props) {
   return (
     <>
+    <Metatag/>
       <Box
         sx={{
           marginBottom: "4em",
@@ -92,22 +94,39 @@ export default function Posts(props) {
                     {post.title}
                   </Typography>
                   <Box
-                    sx={{
-                      display: "flex",
-                      placeItems: "center",
+                  sx={{
+                    display: "flex",
+                    justifyContent:"flex-start",
+                    gap:'2em',
+                    placeItems: "center",
+                  }}
+                >
+               
+        
+                  {post.categories && post.categories.map(cat => (<Box  sx={{
+                      fontSize:'11px',
+                      backgroundColor:   "#21243D",
+                      color:"white",
+                      borderRadius:'10px',
+                      padding:"2px"
+
                     }}
+                    variant="button"
+                    display="block"
+                    gutterBottom
+                    key = {cat.title}>{cat.title}</Box>))}  
+                       <Typography
+                    sx={{
+                      fontSize:'11px',
+
+                    }}
+                    variant="button"
+                    display="block"
+                    gutterBottom
                   >
-                    <Typography
-                      sx={{
-                        fontStyle: "italic",
-                      }}
-                      variant="button"
-                      display="block"
-                      gutterBottom
-                    >
-                      {dateFormat(post._createdAt, "mediumDate")}
-                    </Typography>
-                  </Box>
+                    {dateFormat(post._createdAt, "mediumDate")}
+                  </Typography>
+                </Box>
                   <Box
                     sx={{
                       width: { xs: "300", md: 750 },

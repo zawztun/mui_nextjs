@@ -16,29 +16,32 @@ const MetaCard = ({ post }) => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
-
         textAlign: {
           xs: "center",
           md: "left",
         },
 
         padding: "3em",
-        // boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
         borderRadius: "1em",
         "&:hover": {
           borderRadius: "3em",
         },
-        background: " rgb(34,193,195)",
-        background:
-          "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,91,121,1) 35%, rgba(0,212,255,1) 100%)",
 
-        // background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,245,45,1) 100%);
 
-        // backgroundImage: `url(https://source.unsplash.com/random)`,
+        background:"rgba(255, 255, 255, 1)",
+        background:" linear-gradient(5deg, rgba(25, 220, 240, .5 ) 10%, rgba(253,245,45,1) 100%)",
+        boxShadow:"0 4px 30px rgba(0, 0, 0, 0.1)",
+         backdropFilter:"blur( 20px )",
+         WebkitBackdropFilter:"blur( 5px )",
+         borderRadius:"20px",
+         //border:"1px solid rgba( 255, 255, 255, 0.18 )",
+        // background: "linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,245,45,1) 100%)",
+
+        //backgroundImage: `url(https://source.unsplash.com/random)`,
 
         // backgroundSize: "cover",
         // backgroundPosition: "center",
-        display: "flex",
+         display: "flex",
       }}
     >
       <Box>
@@ -47,7 +50,7 @@ const MetaCard = ({ post }) => {
           gutterBottom
           sx={{
             fontWeight: "bolder",
-            color: "white",
+            //color: "white",
             fontSize: "clamp(2.5rem,5vw,3rem)",
           }}
         >
@@ -57,36 +60,35 @@ const MetaCard = ({ post }) => {
 
       <Box
         sx={{
+      
           width: { xs: "350", md: "auto" },
-          height: { xs: "auto", md: "auto" },
-          textAlign: "left",
+          height: { xs: "auto", md: 'auto'},
+          textAlign: "left"
         }}
       >
         <Typography
           variant="body1"
           display="block"
+          fontSize= "clamp(1.5em,5vw,1em)"
           gutterBottom
-          sx={{
-            color: "white",
-          }}
         >
           {post.description}
         </Typography>
-      </Box>
-
-      <Box
+        <Box
         sx={{
           display: "flex",
           flexDirection: "rows",
           justifyContent: "center",
-          py: "2em",
           gap: "2em",
-          color:'white'
+          pt:"1em"
         }}
       >
         <GitHubIcon />
         <LinkedInIcon />
       </Box>
+      </Box>
+
+     
     </Box>
   );
 };

@@ -1,9 +1,8 @@
-import Hero from "@/components/Hero";
-import Posts from "@/components/Posts";
+
 import React from "react";
 import { gql } from "@apollo/client";
 import client from "@/utils/apollo";
-import Snippet from "@/components/Snippet";
+import Metatag from "@/components/meta/Metatag";
 import AllPosts from "@/components/AllPosts";
 
 export async function getStaticProps() {
@@ -26,6 +25,7 @@ export async function getStaticProps() {
           }
           categories {
             description
+            title
           }
           _createdAt
         }
@@ -45,6 +45,7 @@ export async function getStaticProps() {
           }
           categories {
             description
+            title
           }
           _createdAt
         }
@@ -61,7 +62,8 @@ export async function getStaticProps() {
 export default function Index(props) {
   return (
     <div>
-      <Posts posts={props.data} />
+      <Metatag/>
+      <AllPosts posts={props.data} />
     </div>
   );
 }

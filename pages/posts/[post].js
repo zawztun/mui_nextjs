@@ -14,6 +14,7 @@ import MetaCard from "@/components/MetaCard";
 import { useEffect } from "react"
 
 import Prism from "prismjs"
+import Metatag from "@/components/meta/Metatag";
 
 require("prismjs/components/prism-javascript")
 
@@ -42,7 +43,6 @@ export const getStaticPaths = async () => {
       params: { post: post.slug.current.toString() },
     };
   });
-  //   console.log(paths);
   return {
     paths,
     fallback: false,
@@ -75,19 +75,25 @@ export const getStaticProps = async ({ params }) => {
 };
 export default function PostDetail({ post }) {
 
+  let defaultMeta = {
+    title: post.title,
+    description:post.description,
+    url: "https://zztblog-zawztun.vercel.app/",
+    image: "/home/test_meta.png",
+  };
   useEffect(()=>{
     Prism.highlightAll()
   },[])
   return (
     <>
+    <Metatag meta = {defaultMeta}/>
     <MetaCard post = {post}/>
     <Box sx={{ marginBottom: "2em", color: "#21243D", 
-    fontSize: "clamp(1.5em,5vw,1em)", width: { xs:300, md: 750 },
-  
+    fontSize: "clamp(1.5em,5vw,1em)", 
       display: "flex",
       flexDirection: "column",
       gap: "1em",
-      px:{sm:'2em', md:'4em'},
+     
       lineHeight:'1.5em',
       textAlign:"center",
       flexBasis: {
@@ -96,21 +102,6 @@ export default function PostDetail({ post }) {
       },
       textAlign: "left"
     }}>
-      {/* <Typography variant="h3" gutterBottom>
-      </Typography>
-      <Typography variant="h4" gutterBottom sx = {{fontWeight : "bold"}}>
-        {post.title}
-      </Typography>
-      <Typography
-                    variant="body1"
-                    display="block"
-                    gutterBottom
-                    sx={{
-                      color: "#21243D",
-                    }}
-                  >
-                    {post.description}
-           </Typography> */}
       <Box>
         <PortableText value={post.bodyRaw} components={SanityCustom} />
       </Box>

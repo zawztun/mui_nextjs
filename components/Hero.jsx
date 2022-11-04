@@ -1,10 +1,10 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import Button from "@mui/material/Button";
 import Image from "next/image";
-
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -16,8 +16,8 @@ const Hero = () => {
           md: "row",
         },
         gap: "1em",
-        marginBottom:"4em",
-        py:'2em'
+        marginBottom: "4em",
+        py: "2em",
       }}
     >
       <Box
@@ -43,7 +43,10 @@ const Hero = () => {
             fontSize: "clamp(2.5rem,5vw,3rem)",
           }}
         >
-          Hi, I am Zaw Tun, <br /> Creative Web developer.
+          Hi, I am Zaw Tun, <br />
+          <br /> Creative Web Developer.
+          <br />
+          UI/UX Front End Developer / Blogger /Freelancer.
         </Typography>
         <Typography
           variant="body1"
@@ -53,17 +56,26 @@ const Hero = () => {
             fontSize: "1rem",
           }}
         >
-          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-          sint. Velit officia consequat duis enim velit mollit. Exercitation
-          veniam consequat sunt nostrud amet.
+          Extensive experience as software engineering practices for the full
+          software development life cycle from design to implementation to
+          integration, including development processes, testing to build
+          operations. Skilled at connecting exceptional assets with users via
+          creative UI frameworks and careful user experience optimization.
+          Experienced working with teams to produce impactful, leading-edge
+          websites that engage customers and deliver business results.
         </Typography>
         <Box>
-          <Button>
-            <GitHubIcon />
-          </Button>
+          <Link href = "https://www.linkedin.com/in/zaw-tun-75bb52127/">
           <Button>
             <LinkedInIcon />
           </Button>
+          </Link>
+          <Link href = "https://github.com/zawztun">
+          <Button>
+            <GitHubIcon />
+          </Button>
+          </Link>
+         
         </Box>
       </Box>
       <Box
@@ -80,7 +92,7 @@ const Hero = () => {
           sx={{
             position: "relative",
             borderRadius: "50%",
-            width: { xs: 250, md: 270 },
+            width: { xs: 230, md: 270 },
             height: { xs: 230, md: 270 },
             overflow: "hidden",
           }}

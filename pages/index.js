@@ -4,6 +4,8 @@ import React from "react";
 import { gql } from "@apollo/client";
 import client from "@/utils/apollo";
 import Snippet from "@/components/Snippet";
+import Metatag from "../components/meta/Metatag";
+
 
 export async function getStaticProps() {
   const { data } = await client.query({
@@ -25,6 +27,7 @@ export async function getStaticProps() {
           }
           categories {
             description
+            title
           }
           _createdAt
         }
@@ -44,6 +47,7 @@ export async function getStaticProps() {
           }
           categories {
             description
+            title
           }
           _createdAt
         }
@@ -59,11 +63,14 @@ export async function getStaticProps() {
 }
 export default function Index(props) {
   return (
-    <div>
+    <>
+<Metatag/>
+      <div>
       <Hero />
       <Posts posts={props.data} />
-
       <Snippet posts={props.data} />
     </div>
+    </>
+  
   );
 }

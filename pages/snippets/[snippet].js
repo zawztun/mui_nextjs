@@ -10,6 +10,7 @@ import {PortableText} from '@portabletext/react'
 import SanityImage from '@/components/sanityImage'
 import SanityCustom from "@/components/portable/SanityCustom";
 import MetaCard from "@/components/MetaCard";
+import Metatag from "@/components/meta/Metatag";
 
 export const getStaticPaths = async () => {
   const { data } = await client.query({
@@ -61,11 +62,19 @@ export const getStaticProps = async ({ params }) => {
     props: { post: data.allSnippet[0] },
   };
 };
+
 export default function SnippetDetail({ post }) {
   console.log(post);
+  let defaultMeta = {
+    title: post.title,
+    description:post.description,
+    url: "https://zztblog-zawztun.vercel.app/",
+    image: "/home/test_meta.png",
+  };
 
   return (
     <>
+    <Metatag meta = {defaultMeta}/>
      <MetaCard post = {post}/>
     <Box sx={{ marginBottom: "2em", color: "#21243D" }}>
       <Typography variant="h4" gutterBottom></Typography>
