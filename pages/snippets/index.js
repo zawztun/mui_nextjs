@@ -1,8 +1,9 @@
 import React from "react";
 import { gql } from "@apollo/client";
 import client from "@/utils/apollo";
-import Snippet from "@/components/Snippet";
+
 import Metatag from "@/components/meta/Metatag";
+import AllSnippets from "@/components/AllSnippets";
 
 export async function getStaticProps() {
   const { data } = await client.query({
@@ -28,7 +29,7 @@ export async function getStaticProps() {
           }
           _createdAt
         }
-        allSnippet(limit: 3, sort: { _createdAt: DESC }) {
+        allSnippet( sort: { _createdAt: DESC }) {
           title
           slug {
             current
@@ -62,7 +63,7 @@ export default function Index(props) {
   return (
     <div>
       <Metatag/>
-      <Snippet posts={props.data} />
+     <AllSnippets posts={props.data} />
     </div>
   );
 }

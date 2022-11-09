@@ -5,6 +5,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import Button from "@mui/material/Button";
 import Image from "next/image";
 import Link from "next/link";
+import SendIcon from '@mui/icons-material/Send';
 
 const Hero = () => {
   return (
@@ -18,6 +19,9 @@ const Hero = () => {
         gap: "1em",
         marginBottom: "4em",
         py: "2em",
+        boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+        borderRadius: "15px",
+        padding:'2em'
       }}
     >
       <Box
@@ -48,35 +52,27 @@ const Hero = () => {
           <br />
           UI/UX Front End Developer / Blogger /Freelancer.
         </Typography>
+        <Link href = "/about">
         <Typography
           variant="body1"
           gutterBottom
-          sx={{
-            color: "#21243D",
-            fontSize: "1rem",
-          }}
-        >
-          Extensive experience as software engineering practices for the full
-          software development life cycle from design to implementation to
-          integration, including development processes, testing to build
-          operations. Skilled at connecting exceptional assets with users via
-          creative UI frameworks and careful user experience optimization.
-          Experienced working with teams to produce impactful, leading-edge
-          websites that engage customers and deliver business results.
-        </Typography>
-        <Box>
-          <Link href = "https://www.linkedin.com/in/zaw-tun-75bb52127/">
-          <Button>
-            <LinkedInIcon />
-          </Button>
-          </Link>
-          <Link href = "https://github.com/zawztun">
-          <Button>
-            <GitHubIcon />
-          </Button>
-          </Link>
+           sx={{
+            display:'flex',
+           justifyContent:"flex-end",
+           cursor: "pointer",
          
-        </Box>
+           }}
+        >
+            <Button endIcon = {<SendIcon/>} sx={{fontSize: ".5em", color:'black',
+             "&:hover": {
+              backgroundColor: "black",
+              color: "white",
+            }}}>
+          More...
+        </Button>
+        </Typography>
+        </Link>
+     
       </Box>
       <Box
         sx={{
@@ -95,6 +91,7 @@ const Hero = () => {
             width: { xs: 230, md: 270 },
             height: { xs: 230, md: 270 },
             overflow: "hidden",
+            // boxShadow: "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;"
           }}
         >
           <Image
@@ -103,6 +100,20 @@ const Hero = () => {
             alt="Zaw Z Tun"
             layout="fill"
           />
+        </Box>
+        
+        <Box sx = {{   cursor: "pointer",}}>
+          <Link href = "https://www.linkedin.com/in/zaw-tun-75bb52127/">
+          <Button>
+            <LinkedInIcon />
+          </Button>
+          </Link>
+          <Link href = "https://github.com/zawztun">
+          <Button>
+            <GitHubIcon />
+          </Button>
+          </Link>
+         
         </Box>
       </Box>
     </Box>

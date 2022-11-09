@@ -42,21 +42,46 @@ export default function AllPosts(props) {
     
   }}
 >
-  {/* {props.posts.allSnippet.map((post) => (
-
-    <Link key = {post.title} href = {`/snippets/${post?.slug?.current}`} 
-  
-    > */}
+ 
      {props.posts.allPost.map((post) => (<Link key={post.title} href={`/posts/${post?.slug?.current}`}>
       
       <Box
         sx={{
+          display:'flex',
+          flexDirection:"column",
+          alignItems:'center',
           padding: "1em",
           boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
           borderRadius: "15px",
           cursor: "pointer",
+          "&:hover": {
+            boxShadow: "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset"
+          }
         }}
       >
+        <Box
+                  sx={{
+                    position: "relative",
+                    borderRadius: "5%",
+                    width: { xs: "100%", md: 257 },
+                    height: { xs: "auto", md: 227 },
+                    aspectRatio: {
+                      xs: "16/9",
+                    },
+                    overflow: "hidden",
+                    minWidth: 250,
+                    // fontWeight: "bolder",
+                    fontSize: "clamp(2.5rem,5vw,3rem)",
+                    
+                  }}
+                >
+                  <Image
+                    objectFit="cover"
+                    src={post.mainImage.asset.url}
+                    alt="Zaw Z Tun"
+                    layout="fill"
+                  />
+                </Box>
             
         <Box
           sx={{
@@ -78,14 +103,13 @@ export default function AllPosts(props) {
             }}
           >
          
-  
             {post.categories && post.categories.map(cat => (<Box  sx={{
-                fontSize:'11px',
+                fontSize:'12px',
                 backgroundColor:   "#21243D",
                 //boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
                 color:"white",
-                borderRadius:'10px',
-                padding:"2px"
+                px:".5rem",
+                
 
               }}
               variant="button"
@@ -134,7 +158,7 @@ export default function AllPosts(props) {
     }}>
  
     <Link href="/snippets" >
-      <Button variant="text" endIcon={<SendIcon />}>
+      <Button variant="text" endIcon={<SendIcon /> } sx={{ color: "black" }}>
     Snippets
 </Button>
     </Link>

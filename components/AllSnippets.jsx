@@ -6,7 +6,8 @@ import Link from 'next/link'
 import { Button } from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
 
-const Snippet = (props) => {
+const AllSnippets = (props) => {
+    console.log(props)
   return (
     <Box>
       <Box
@@ -77,8 +78,8 @@ const Snippet = (props) => {
                
         
                   {post.categories && post.categories.map(cat => (<Box  sx={{
-                      fontSize:'11px',
-                      backgroundColor:   "#21243D",
+                      
+                      backgroundColor: "#21243D",
                       color:"white",
                       borderRadius:'10px',
                       padding:"2px"
@@ -139,4 +140,4 @@ const Snippet = (props) => {
     </Box>
   );
 };
-export default Snippet;
+export default AllSnippets;

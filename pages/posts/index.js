@@ -4,6 +4,7 @@ import { gql } from "@apollo/client";
 import client from "@/utils/apollo";
 import Metatag from "@/components/meta/Metatag";
 import AllPosts from "@/components/AllPosts";
+import Search from "hooks/Search";
 
 export async function getStaticProps() {
   const { data } = await client.query({
@@ -60,9 +61,12 @@ export async function getStaticProps() {
   };
 }
 export default function Index(props) {
+   //const { keyword, setKeyword, data: posts } = Search(data.posts);
+
   return (
     <div>
       <Metatag/>
+      <Search />
       <AllPosts posts={props.data} />
     </div>
   );

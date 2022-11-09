@@ -18,7 +18,7 @@ let SanityCustom = {
       );
     },
     code: ({ value }) => (
-      <Box sx={{ display: "block" }}>
+      <Box sx={{ display: "block"}}>
         <pre className={`language-${value.language}`}>
           <code>{value.code}</code>
         </pre>

@@ -41,6 +41,7 @@ export default function Posts(props) {
             display: "flex",
             flexDirection: "column",
             gap: "2em",
+            
           }}
         >
           {props.posts.allPost.map((post) => (
@@ -57,6 +58,13 @@ export default function Posts(props) {
                     xs: "1em",
                     md: "2em",
                   },
+                  padding: "1em",
+                  boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+                  borderRadius: "15px",
+                  cursor: "pointer",
+                  "&:hover": {
+                    boxShadow: "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset"
+                  }
                 }}
               >
                 <Box
@@ -90,7 +98,7 @@ export default function Posts(props) {
                     py: "1em",
                   }}
                 >
-                  <Typography sx={{ fontWeight: "bolder", fontSize: "1.5em" }}>
+                  <Typography sx={{ fontWeight: "bolder"}}>
                     {post.title}
                   </Typography>
                   <Box
@@ -99,17 +107,19 @@ export default function Posts(props) {
                     justifyContent:"flex-start",
                     gap:'2em',
                     placeItems: "center",
+                    fontSize:'12px',
                   }}
                 >
                
         
                   {post.categories && post.categories.map(cat => (<Box  sx={{
-                      fontSize:'11px',
-                      backgroundColor:   "#21243D",
-                      color:"white",
-                      borderRadius:'10px',
-                      padding:"2px"
-
+                   
+                      
+                        backgroundColor: "black",
+                        color: "white",
+                        padding: '.5em',
+                        borderRadius:"10px"
+                    
                     }}
                     variant="button"
                     display="block"
@@ -118,7 +128,7 @@ export default function Posts(props) {
                        <Typography
                     sx={{
                       fontSize:'11px',
-
+                      paddingTop:'5px'
                     }}
                     variant="button"
                     display="block"
@@ -151,12 +161,12 @@ export default function Posts(props) {
           ))}
         </Box>
       </Box>
-      <Box sx = {{ display:'flex', justifyContent:'flex-end'}}>
+      <Box sx = {{ display:'flex', justifyContent:'flex-end', color:"black"}}>
        
           <Link href="/posts">
-          <Button endIcon={<SendIcon />}>
+          <Button endIcon = {<SendIcon/>} sx={{ color: "black" }}>
          Blogs
-</Button>
+        </Button>
           </Link>
        
       </Box>

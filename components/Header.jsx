@@ -11,7 +11,6 @@ import SubdirectoryArrowRightIcon from '@mui/icons-material/SubdirectoryArrowRig
 import { Box } from "@mui/system";
 import Link from "next/link";
 import BallotIcon from "@mui/icons-material/Ballot";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { IconButton } from "@mui/material";
 import Image from "next/image";
 

@@ -28,12 +28,19 @@ const MetaCard = ({ post }) => {
         },
 
 
-        background:"rgba(255, 255, 255, 1)",
-        background:" linear-gradient(5deg, rgba(25, 220, 240, .5 ) 10%, rgba(253,245,45,1) 100%)",
-        boxShadow:"0 4px 30px rgba(0, 0, 0, 0.1)",
-         backdropFilter:"blur( 20px )",
-         WebkitBackdropFilter:"blur( 5px )",
-         borderRadius:"20px",
+        // background:"rgba(255, 255, 255, 1)",
+        // background:" linear-gradient(5deg, rgba(25, 220, 240, .5 ) 10%, rgba(253,245,45,1) 100%)",
+    
+        //  backdropFilter:"blur( 20px )",
+        //  WebkitBackdropFilter:"blur( 5px )",
+        //  borderRadius:"20px",
+
+         padding: "2em",
+         //boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+         boxShadow:"rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px",
+         borderRadius: "15px",
+         cursor: "pointer",
+
          //border:"1px solid rgba( 255, 255, 255, 0.18 )",
         // background: "linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,245,45,1) 100%)",
 
@@ -42,6 +49,7 @@ const MetaCard = ({ post }) => {
         // backgroundSize: "cover",
         // backgroundPosition: "center",
          display: "flex",
+         
       }}
     >
       <Box>
@@ -56,6 +64,7 @@ const MetaCard = ({ post }) => {
         >
           {post.title}
         </Typography>
+        
       </Box>
 
       <Box
@@ -63,7 +72,8 @@ const MetaCard = ({ post }) => {
       
           width: { xs: "350", md: "auto" },
           height: { xs: "auto", md: 'auto'},
-          textAlign: "left"
+          textAlign: "left",
+          
         }}
       >
         <Typography
@@ -74,7 +84,7 @@ const MetaCard = ({ post }) => {
         >
           {post.description}
         </Typography>
-        <Box
+        {/* <Box
         sx={{
           display: "flex",
           flexDirection: "rows",
@@ -85,7 +95,41 @@ const MetaCard = ({ post }) => {
       >
         <GitHubIcon />
         <LinkedInIcon />
-      </Box>
+      </Box> */}
+      <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent:"flex-end",
+                    gap:'2em',
+                    placeItems: "center",
+                  }}
+                >
+               
+        
+                  {post.categories && post.categories.map(cat => (<Box  sx={{
+                      fontSize:'12px',
+                      backgroundColor:   "#21243D",
+                      color:"white",
+                      borderRadius:'10px',
+                      padding:".5em"
+
+                    }}
+                    variant="button"
+                    display="block"
+                    gutterBottom
+                    key = {cat.title}>{cat.title}</Box>))}  
+                       <Typography
+                    sx={{
+                      fontSize:'11px',
+
+                    }}
+                    variant="button"
+                    display="block"
+                    gutterBottom
+                  >
+                    {dateFormat(post._createdAt, "mediumDate")}
+                  </Typography>
+                </Box>
       </Box>
 
      
